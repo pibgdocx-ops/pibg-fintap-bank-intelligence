@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pibg-statement-classifier"
+version = "0.1.0"
+description = "PIBG VAT-inclusive bank statement classifier"
+requires-python = ">=3.10"
+dependencies = ["pypdf>=5.0,<7", "fastapi>=0.115,<1", "uvicorn[standard]>=0.34,<1", "python-multipart>=0.0.20,<1", "SQLAlchemy>=2.0,<3", "psycopg[binary]>=3.2,<4"]
+
+[project.scripts]
+pibg-classify = "pibg.cli:main"
+pibg-web = "pibg.web:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
